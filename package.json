@@ -1,19 +1,18 @@
 {
   "name": "smart-grid-digital-twin",
-  "private": true,
   "version": "1.0.0",
-  "type": "module",
+  "description": "Smart Grid Digital Twin Simulator — Professional Power Systems Analysis Platform",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:frontend": "cd frontend && npm start",
+    "start:backend": "cd backend && npm start",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run start:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "build": "cd frontend && npm run build"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.1",
-    "vite": "^5.4.2"
+    "concurrently": "^8.2.2"
   }
 }
